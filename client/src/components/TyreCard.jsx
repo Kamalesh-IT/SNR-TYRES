@@ -21,7 +21,9 @@ const TyreCard = ({ tyre }) => {
             <div className="tyre-image-container">
                 <img src={tyre.image} alt={tyre.name} className="tyre-image" />
                 <div className="tyre-badge-container">
-                    <Badge variant="default" className="tyre-badge-custom">{tyre.category || tyre.type}</Badge>
+                    <Badge variant="default" className="tyre-badge-custom">
+                        {Array.isArray(tyre.category) ? tyre.category[0] : (tyre.category || tyre.type || 'All-Season')}
+                    </Badge>
                 </div>
             </div>
 

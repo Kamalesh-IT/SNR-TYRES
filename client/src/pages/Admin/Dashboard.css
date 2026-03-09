@@ -120,24 +120,35 @@
 }
 
 .modal-content {
-    background-color: var(--color-bg-card);
-    padding: 2rem;
+    background-color: #1a1a2e;
+    padding: 2.5rem;
     border-radius: var(--radius-lg);
     width: 90%;
-    max-width: 600px;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    color: white;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal-content h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.form-grid .full-width {
+    grid-column: span 2;
 }
 
 .form-group {
@@ -162,7 +173,82 @@
 .modal-actions {
     display: flex;
     justify-content: flex-end;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.modal-actions .btn-secondary {
+    background-color: #252540;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.modal-actions .btn-primary {
+    background-color: #00e5ff;
+    color: #0c0c14;
+    font-weight: 700;
+    box-shadow: 0 4px 14px 0 rgba(0, 229, 255, 0.39);
+}
+
+.modal-actions .btn-primary:hover {
+    background-color: #00f0ff;
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
+}
+
+.image-input-container {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
+}
+
+.image-preview-mini {
+    background-color: var(--color-bg-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.image-preview-mini p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.image-preview-mini img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    display: block;
+}
+
+.shop-settings-section {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.shop-settings-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
 }
 
 @media (max-width: 600px) {

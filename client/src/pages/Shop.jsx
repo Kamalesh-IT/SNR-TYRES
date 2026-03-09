@@ -6,21 +6,25 @@ import './Shop.css';
 
 const Shop = () => {
     const { products } = useContext(ShopContext);
-    const [filteredProducts, setFilteredProducts] = useState(products);
+    const [filteredProducts, setFilteredProducts] = useState(Array.isArray(products) ? products : []);
     const [filters, setFilters] = useState({
         brands: [],
         types: []
     });
 
     useEffect(() => {
-        let result = products;
+        let result = Array.isArray(products) ? products : [];
 
         if (filters.brands.length > 0) {
             result = result.filter(p => filters.brands.includes(p.brand));
         }
 
         if (filters.types.length > 0) {
-            result = result.filter(p => filters.types.includes(p.type));
+            result = result.filter(p => 
+                Array.isArray(p.category) 
+                    ? p.category.some(cat => filters.types.includes(cat))
+                    : filters.types.includes(p.category)
+            );
         }
 
         setFilteredProducts(result);

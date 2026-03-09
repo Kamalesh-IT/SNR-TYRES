@@ -20,7 +20,11 @@ const Shop = () => {
         }
 
         if (filters.types.length > 0) {
-            result = result.filter(p => filters.types.includes(p.type));
+            result = result.filter(p => 
+                Array.isArray(p.category) 
+                    ? p.category.some(cat => filters.types.includes(cat))
+                    : filters.types.includes(p.type || p.category)
+            );
         }
 
         setFilteredProducts(result);

@@ -54,7 +54,7 @@ const Cart = () => {
             <div className="cart-layout">
                 <div className="cart-items">
                     {cart.map(item => (
-                        <div key={item.id} className="cart-item">
+                        <div key={item._id} className="cart-item">
                             <img src={item.image} alt={item.name} className="cart-item-image" />
 
                             <div className="cart-item-details">
@@ -65,11 +65,11 @@ const Cart = () => {
 
                             <div className="cart-item-actions">
                                 <div className="quantity-controls">
-                                    <button onClick={() => updateQuantity(item.id, -1)}><Minus size={16} /></button>
+                                    <button onClick={() => updateQuantity(item._id, -1)}><Minus size={16} /></button>
                                     <span>{item.quantity}</span>
-                                    <button onClick={() => updateQuantity(item.id, 1)}><Plus size={16} /></button>
+                                    <button onClick={() => updateQuantity(item._id, 1)}><Plus size={16} /></button>
                                 </div>
-                                <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
+                                <button className="remove-btn" onClick={() => removeFromCart(item._id)}>
                                     <Trash2 size={18} />
                                 </button>
                             </div>

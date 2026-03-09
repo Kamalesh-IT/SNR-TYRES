@@ -10,8 +10,14 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     category: {
-        type: String,
-        required: true,
+        type: [String],
+        default: ['All-Season'],
+        enum: ['Summer', 'Winter', 'All-Season', 'Other'],
+    },
+    roadType: {
+        type: [String],
+        default: ['City'],
+        enum: ['Highway', 'Off-Road', 'City', 'Racing', 'Other'],
     },
     price: {
         type: Number,
@@ -29,6 +35,20 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 0,
+    },
+    vehicleType: {
+        type: String,
+        required: true,
+        enum: ['Car', 'SUV', 'Bike', 'Truck', 'Other'],
+        default: 'Car',
+    },
+    specifications: {
+        type: String,
+        required: false,
+    },
+    suitableModels: {
+        type: [String],
+        default: [],
     },
 }, {
     timestamps: true,

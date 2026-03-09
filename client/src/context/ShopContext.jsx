@@ -1,19 +1,28 @@
 import { createContext, useState, useEffect } from 'react';
+import { tyres as staticTyres } from '../data/tyres';
 
 export const ShopContext = createContext(null);
 
 export const ShopProvider = ({ children }) => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(staticTyres);
     const [cart, setCart] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [shopDetails, setShopDetails] = useState({
+        name: 'SNR Tyres',
+        address: '',
+        contactNumber: '',
+        email: '',
+        openingHours: '',
+        logo: ''
+    });
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await fetch('http://localhost:5000/api/products');
                 const data = await response.json();
-                if (response.ok) {
+                if (response.ok && Array.isArray(data) && data.length > 0) {
                     setProducts(data);
                 }
             } catch (error) {
@@ -23,7 +32,22 @@ export const ShopProvider = ({ children }) => {
             }
         };
 
+        const fetchShopDetails = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/shop');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && typeof data === 'object') {
+                        setShopDetails(prev => ({ ...prev, ...data }));
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch shop details", error);
+            }
+        };
+
         fetchProducts();
+        fetchShopDetails();
     }, []);
 
     // Cart Functions
@@ -109,11 +133,30 @@ export const ShopProvider = ({ children }) => {
         }
     };
 
+    const updateShopInfo = async (newDetails) => {
+        try {
+            const response = await fetch('http://localhost:5000/api/shop', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newDetails)
+            });
+            const data = await response.json();
+            if (response.ok) {
+                setShopDetails(data);
+            } else {
+                console.error('Failed to update shop details:', data.message);
+            }
+        } catch (error) {
+            console.error('Error updating shop details:', error);
+        }
+    };
+
     const value = {
         products,
         loading,
         cart,
         isAdmin,
+        shopDetails,
         setIsAdmin,
         addToCart,
         removeFromCart,
@@ -121,7 +164,8 @@ export const ShopProvider = ({ children }) => {
         cartTotal,
         updateProduct,
         addProduct,
-        deleteProduct
+        deleteProduct,
+        updateShopInfo
     };
 
     return (

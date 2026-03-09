@@ -20,7 +20,7 @@ const Home = () => {
         }
     };
 
-    const featuredProducts = products.slice(0, 3);
+    const featuredProducts = Array.isArray(products) ? products.slice(0, 3) : [];
 
     return (
         <div className="home-page">
@@ -55,9 +55,13 @@ const Home = () => {
                 </div>
 
                 <div className="product-grid">
-                    {featuredProducts.map(tyre => (
-                        <TyreCard key={tyre.id} tyre={tyre} />
-                    ))}
+                    {featuredProducts.length > 0 ? (
+                        featuredProducts.map(tyre => (
+                            <TyreCard key={tyre._id || tyre.id} tyre={tyre} />
+                        ))
+                    ) : (
+                        <p>No featured products available.</p>
+                    )}
                 </div>
             </section>
 
