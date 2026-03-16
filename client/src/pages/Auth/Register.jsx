@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus, Zap } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import './Auth.css';
 
 const Register = () => {
+    const { register } = useAuth();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -47,27 +49,12 @@ const Register = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    password: formData.password
-                })
-            });
+            const result = await register(formData.name, formData.email, formData.password);
 
-            const data = await response.json();
-
-            if (response.ok) {
-                console.log('User registered successfully:', data);
-                // Save user info/token if needed, or just redirect
-                localStorage.setItem('userInfo', JSON.stringify(data));
-                navigate('/login');
+            if (result.success) {
+                navigate('/profile');
             } else {
-                setError(data.message || 'Registration failed');
+                setError(result.message || 'Registration failed');
             }
         } catch (err) {
             console.error('Registration error:', err);

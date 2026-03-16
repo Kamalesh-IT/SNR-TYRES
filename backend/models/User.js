@@ -14,6 +14,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    phoneNumber: {
+        type: String,
+        default: '',
+    },
+    address: {
+        type: String,
+        default: '',
+    },
     isAdmin: {
         type: Boolean,
         required: true,

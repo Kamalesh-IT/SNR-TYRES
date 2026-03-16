@@ -37,7 +37,11 @@ const TyreCard = ({ tyre }) => {
                 </div>
 
                 <h3 className="tyre-name">{tyre.name}</h3>
-                {tyre.size && <p className="tyre-size">Size: {tyre.size}</p>}
+                {(tyre.size || tyre.specifications) && (
+                    <p className="tyre-size">
+                        {tyre.size ? `Size: ${tyre.size}` : tyre.specifications}
+                    </p>
+                )}
 
                 <div className="tyre-footer">
                     <div className="tyre-price">{formatPrice(tyre.price)}</div>

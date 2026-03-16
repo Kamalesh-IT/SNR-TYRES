@@ -36,6 +36,10 @@ const productSchema = new mongoose.Schema({
         required: true,
         default: 0,
     },
+    rating: {
+        type: Number,
+        default: 4.5,
+    },
     vehicleType: {
         type: String,
         required: true,

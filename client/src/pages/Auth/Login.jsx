@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LogIn, Zap } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import './Auth.css';
 
 const Login = () => {
+    const { login } = useAuth();
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
@@ -36,25 +38,12 @@ const Login = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(credentials)
-            });
+            const result = await login(credentials.email, credentials.password);
 
-            const data = await response.json();
-
-            if (response.ok) {
-                console.log('Logged in successfully:', data);
-                // Save user info and token to localStorage
-                localStorage.setItem('userInfo', JSON.stringify(data));
-
-                // Navigate to home
-                navigate('/');
+            if (result.success) {
+                navigate('/profile');
             } else {
-                setError(data.message || 'Invalid email or password');
+                setError(result.message || 'Invalid email or password');
             }
         } catch (err) {
             console.error('Login error:', err);

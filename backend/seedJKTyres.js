@@ -15,6 +15,7 @@ const jkTyres = [
         description: 'Low noise, high-speed stability and comfort for premium sedans.',
         image: 'https://images.unsplash.com/photo-1549410284-85bc10e20fb1?auto=format&fit=crop&q=80&w=600',
         stock: 45,
+        rating: 4.8,
         vehicleType: 'Car',
         specifications: '205/60 R16, Speed Rating V, Load Index 92',
         suitableModels: ['Honda City', 'Hyundai Verna']
@@ -28,6 +29,7 @@ const jkTyres = [
         description: 'Better mileage and strong grip for entry-level hatchbacks.',
         image: 'https://images.unsplash.com/photo-1541819665-de3969185a97?auto=format&fit=crop&q=80&w=600',
         stock: 60,
+        rating: 4.5,
         vehicleType: 'Car',
         specifications: '155/70 R13, Speed Rating S, Load Index 75',
         suitableModels: ['Hyundai Santro', 'Hyundai Eon']
@@ -41,6 +43,7 @@ const jkTyres = [
         description: 'Long tread life and comfortable ride for popular family cars.',
         image: 'https://images.unsplash.com/photo-1549410313-2d2c2d2c2d2c?auto=format&fit=crop&q=80&w=600',
         stock: 55,
+        rating: 4.6,
         vehicleType: 'Car',
         specifications: '155/80 R13, Speed Rating S, Load Index 79',
         suitableModels: ['Maruti Wagon R', 'Tata Tiago']
@@ -54,6 +57,7 @@ const jkTyres = [
         description: 'Premium comfort and high grip for premium hatchbacks and sedans.',
         image: 'https://images.unsplash.com/photo-1542044896530-05d85be9b11a?auto=format&fit=crop&q=80&w=600',
         stock: 35,
+        rating: 4.9,
         vehicleType: 'Car',
         specifications: '195/55 R16, Speed Rating V, Load Index 87',
         suitableModels: ['Hyundai i20', 'Honda Jazz']
@@ -68,6 +72,7 @@ const jkTyres = [
         description: 'Smooth ride and long tread life specifically designed for SUVs and MUVs.',
         image: 'https://images.unsplash.com/photo-1542013936663-e7998b536ad4?auto=format&fit=crop&q=80&w=600',
         stock: 40,
+        rating: 4.7,
         vehicleType: 'SUV',
         specifications: '205/65 R16, Speed Rating H, Load Index 95',
         suitableModels: ['Hyundai Creta', 'Kia Seltos']
@@ -81,6 +86,7 @@ const jkTyres = [
         description: 'Highway terrain specialist with low noise and high-speed stability.',
         image: 'https://images.unsplash.com/photo-1580193259160-b99d79a25b2a?auto=format&fit=crop&q=80&w=600',
         stock: 25,
+        rating: 4.8,
         vehicleType: 'SUV',
         specifications: '235/65 R17, Speed Rating H, Load Index 104',
         suitableModels: ['Toyota Fortuner']
@@ -94,6 +100,7 @@ const jkTyres = [
         description: 'All-terrain grip for superior performance on both roads and tracks.',
         image: 'https://images.unsplash.com/photo-1594731802111-070125255077?auto=format&fit=crop&q=80&w=600',
         stock: 20,
+        rating: 4.6,
         vehicleType: 'SUV',
         specifications: '265/65 R17, Speed Rating T, Load Index 112',
         suitableModels: ['Mahindra Thar']
@@ -107,6 +114,7 @@ const jkTyres = [
         description: 'Mud terrain specialist with exceptional off-road traction and stone ejector.',
         image: 'https://images.unsplash.com/photo-1549410313-e020d20d2d2d?auto=format&fit=crop&q=80&w=600',
         stock: 15,
+        rating: 4.9,
         vehicleType: 'SUV',
         specifications: '245/75 R16, Speed Rating Q, Load Index 120',
         suitableModels: ['Jeep Wrangler']
@@ -121,6 +129,7 @@ const jkTyres = [
         description: 'Strong grip and durability for everyday city commuting.',
         image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=600',
         stock: 80,
+        rating: 4.5,
         vehicleType: 'Bike',
         specifications: '90/90-17, Tubeless, Load Index 49',
         suitableModels: ['Bajaj Pulsar']
@@ -134,6 +143,7 @@ const jkTyres = [
         description: 'High stability and superior control for long-distance highway cruises.',
         image: 'https://images.unsplash.com/photo-1591637333184-1d07b719702a?auto=format&fit=crop&q=80&w=600',
         stock: 70,
+        rating: 4.7,
         vehicleType: 'Bike',
         specifications: '100/90-18, Tubeless, Load Index 56',
         suitableModels: ['Royal Enfield']
@@ -147,6 +157,7 @@ const jkTyres = [
         description: 'Long life and dependable performance for commuters.',
         image: 'https://images.unsplash.com/photo-1591637333184-1d07b719702a?auto=format&fit=crop&q=80&w=600',
         stock: 100,
+        rating: 4.4,
         vehicleType: 'Bike',
         specifications: '80/100-18, Tube Type, Load Index 47',
         suitableModels: ['Hero Splendor']
@@ -161,6 +172,7 @@ const jkTyres = [
         description: 'Heavy load capacity and durability for long-haul transport trucks.',
         image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600',
         stock: 15,
+        rating: 4.8,
         vehicleType: 'Truck',
         specifications: '295/90 R20, Radial, Ply Rating 16 PR',
         suitableModels: ['Long Haul Trucks']
@@ -174,6 +186,7 @@ const jkTyres = [
         description: 'High durability and excellent retreadability for cargo trucks.',
         image: 'https://images.unsplash.com/photo-1549410313-3d3d3d3d3d3d?auto=format&fit=crop&q=80&w=600',
         stock: 20,
+        rating: 4.7,
         vehicleType: 'Truck',
         specifications: '10.00 R20, Radial, Ply Rating 16 PR',
         suitableModels: ['Cargo Trucks']
@@ -187,6 +200,7 @@ const jkTyres = [
         description: 'Better mileage and optimized tread design for highway transport.',
         image: 'https://images.unsplash.com/photo-1549410313-4d4d4d4d4d4d?auto=format&fit=crop&q=80&w=600',
         stock: 12,
+        rating: 4.9,
         vehicleType: 'Truck',
         specifications: '11.00 R20, Radial, Ply Rating 18 PR',
         suitableModels: ['Highway Transport']
@@ -198,10 +212,12 @@ const seedJKTyres = async () => {
         await mongoose.connect(process.env.MONGODB_URI);
         console.log('Connected to MongoDB');
 
-        // We don't delete existing products because we want to add these to the current set
-        // But the user might want a clean slate. I'll just add them.
+        // Clean slate for migration
+        await Product.deleteMany({});
+        console.log('Existing products cleared');
+
         await Product.insertMany(jkTyres);
-        console.log('JK Tyres seeded successfully!');
+        console.log('JK Tyres seeded successfully with all details!');
 
         process.exit();
     } catch (error) {

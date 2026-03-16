@@ -91,6 +91,80 @@
     color: var(--color-text-primary);
 }
 
+/* User Menu Dropdown */
+.user-menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-menu-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.user-menu-trigger:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-name-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #1a1a24;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    min-width: 180px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+.user-dropdown a, 
+.user-dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-accent-blue);
+}
+
+.user-dropdown hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 0.5rem 0;
+}
+
+.logout-btn {
+    color: #ff4d4d !important;
+}
+
 @media (max-width: 768px) {
     .desktop-only {
         display: none;
